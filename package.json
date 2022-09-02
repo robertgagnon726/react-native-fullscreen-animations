@@ -1,0 +1,32 @@
+{
+  "name": "react-native-fullscreen-animations",
+  "version": "0.0.1",
+  "description": "A react native package that handles fullscreen animations for your app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertgagnon726/react-native-fullscreen-animations.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "confetti",
+    "cannon",
+    "explosion",
+    "fall",
+    "animation",
+    "animated",
+    "ios",
+    "android",
+    "reanimated"
+  ],
+  "author": "robertgagnon726",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertgagnon726/react-native-fullscreen-animations/issues"
+  },
+  "homepage": "https://github.com/robertgagnon726/react-native-fullscreen-animations#readme"
+}
