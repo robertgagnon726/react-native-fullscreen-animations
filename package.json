@@ -1,6 +1,6 @@
 {
   "name": "react-native-fullscreen-animations",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A react native package that handles fullscreen animations for your app",
   "main": "index.js",
   "scripts": {
@@ -31,8 +31,11 @@
   },
   "homepage": "https://github.com/robertgagnon726/react-native-fullscreen-animations#readme",
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.13",
     "@react-native-community/eslint-config": "^3.1.0",
+    "@types/react": "^18.0.18",
+    "@types/react-native": "^0.69.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
@@ -40,6 +43,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "expo": "^46.0.10",
     "react": "^18.0.0",
     "react-native": "^0.69.5",
     "typescript": "^4.8.2"
