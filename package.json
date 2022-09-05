@@ -1,13 +1,12 @@
 {
   "name": "react-native-fullscreen-animations",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A react native package that handles fullscreen animations for your app",
   "main": "src/index.tsx",
   "scripts": {
     "build": "babel src --out-dir lib -s --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "exports": "./src/index.tsx",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertgagnon726/react-native-fullscreen-animations.git"
@@ -16,8 +15,6 @@
     "react",
     "react-native",
     "confetti",
-    "cannon",
-    "explosion",
     "fall",
     "animation",
     "animated",
