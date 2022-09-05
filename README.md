@@ -9,7 +9,7 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 
 ## Props
 
-| Prop Name | Prop Type | Required | Default | Description |
+| Prop | Type | Required? | Default | Description |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | count | number | No | 100 | The number of pieces of confetti that  |
 | colors | string[] | No | [`#a864fd`, `#29cdff`, `#78ff44`, `#ff718d`, `#fdff6a`] | An array of the colors that the confetti items will be made from. These must be hex values | 
@@ -17,6 +17,7 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 
 
 ## To do 
+- [ ] Make it so just `<Confetti />` can be imported
 - [ ] Set Confetti items to have a differing velocity
 - [ ] Simulate air resistance. Slow them occasionally and move them from left to right?
 - [ ] Create a publish script that automatically builds and increments the version number
