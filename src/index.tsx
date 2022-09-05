@@ -14,20 +14,16 @@ interface ConfettiRootProps {
   count?: number;
   colors?: string[];
   fallDuration?: number;
+  zIndex?: number;
 }
 
-export const DEFAULT_COLORS = [
-  '#a864fd',
-  '#29cdff',
-  '#78ff44',
-  '#ff718d',
-  '#fdff6a',
-];
+const DEFAULT_COLORS = ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'];
 
 export const Confetti = ({
   count = 100,
   colors = DEFAULT_COLORS,
   fallDuration = 10000,
+  zIndex = 1000,
 }: ConfettiRootProps) => {
   const _yOffset = useSharedValue(0);
 
@@ -44,10 +40,11 @@ export const Confetti = ({
     const res = [];
     for (let i = 0; i < count; i++) {
       const height = randomNumber(MIN_SHORT, MAX_LONG);
-      const width = randomNumber(MIN_SHORT, MAX_LONG);
+      const width = 8;
       const color = randomColor(colors);
       const left = randomNumber(0, Dimensions.get('window').width) - MAX_LONG;
       const top = randomNumber(-MAX_LONG, -500);
+      const rotate = Math.round(randomNumber(0, 180));
       const init = Math.round(randomNumber(0, 2));
       const shape: 'rect' | 'circle' | 'oval' =
         init === 2 ? 'rect' : init === 1 ? 'circle' : 'oval';
@@ -58,6 +55,7 @@ export const Confetti = ({
         left,
         top,
         shape,
+        rotate,
       });
     }
     return res;
@@ -88,6 +86,8 @@ export const Confetti = ({
           left={item.left}
           top={item.top}
           shape={item.shape}
+          rotate={item.rotate}
+          zIndex={zIndex}
         />
       ))}
     </Animated.View>

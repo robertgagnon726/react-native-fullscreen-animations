@@ -14,6 +14,8 @@ interface ConfettiItemProps {
   left: number;
   top: number;
   shape: 'rect' | 'circle' | 'oval';
+  rotate: number;
+  zIndex: number;
 }
 
 export const ConfettiItem = ({
@@ -23,6 +25,8 @@ export const ConfettiItem = ({
   left,
   top,
   shape,
+  rotate,
+  zIndex,
 }: ConfettiItemProps) => {
   const animatedStyles = useAnimatedStyle(() => {
     const randomNumber = (min: number, max: number) => {
@@ -38,7 +42,7 @@ export const ConfettiItem = ({
       backgroundColor: color,
       height,
       width,
-      zIndex: 1000,
+      zIndex,
       position: 'absolute',
       left,
       top,
@@ -47,7 +51,7 @@ export const ConfettiItem = ({
         {
           rotateX: withRepeat(
             withSequence(
-              withTiming(`${360}deg`, {
+              withTiming(`${180}deg`, {
                 duration: rotateDuration,
                 easing: Easing.linear,
               }),
@@ -63,7 +67,7 @@ export const ConfettiItem = ({
         {
           rotateY: withRepeat(
             withSequence(
-              withTiming(`${360}deg`, {
+              withTiming(`${180}deg`, {
                 duration: rotateDuration,
                 easing: Easing.linear,
               }),
@@ -76,8 +80,11 @@ export const ConfettiItem = ({
             true,
           ),
         },
+        { rotate: `${rotate}deg` },
       ],
     };
   });
-  return <Animated.View style={animatedStyles} />;
+  return (
+      <Animated.View style={animatedStyles} />
+  );
 };
