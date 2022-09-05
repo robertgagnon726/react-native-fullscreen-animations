@@ -5,7 +5,7 @@ react-native-fullscreen-animations is a library to provides easy to use fullscre
 
 If there are suggestions or ideas for improvement, please open up an issue and I'll try to get to it
 
-![Confetti animation demo](./docs/assets/confetti.gif)
+<img src="./docs/assets/confetti.gif" alt="Confetti animation demo"/>
 
 ## Props
 
