@@ -10,11 +10,23 @@ import Animated, {
 import { ConfettiItem } from "./confetti-item";
 import { randomColor, randomNumber } from "./utils";
 
+// TODO BG - add in before and after callback
+
 interface ConfettiRootProps {
   count?: number;
   colors?: string[];
   fallDuration?: number;
   zIndex?: number;
+}
+
+interface Res {
+  height: number;
+  width: number;
+  color: string;
+  left: number;
+  top: number;
+  shape: "circle" | "oval" | "rect";
+  rotate: number;
 }
 
 const DEFAULT_COLORS = ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"];
@@ -35,7 +47,7 @@ export const Confetti = ({
   const items = React.useMemo(() => {
     const MIN_SHORT = 4;
     const MAX_LONG = 16;
-    const res = [];
+    const res: Res[] = [];
     for (let i = 0; i < count; i++) {
       const height = randomNumber(MIN_SHORT, MAX_LONG);
       const width = 8;
@@ -86,6 +98,7 @@ export const Confetti = ({
           shape={item.shape}
           rotate={item.rotate}
           zIndex={zIndex}
+          fallDuration={fallDuration}
         />
       ))}
     </Animated.View>
