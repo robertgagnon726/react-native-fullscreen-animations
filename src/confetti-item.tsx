@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -6,7 +6,8 @@ import Animated, {
   withSequence,
   withTiming,
   useSharedValue,
-} from "react-native-reanimated";
+  withDelay,
+} from 'react-native-reanimated';
 
 interface ConfettiItemProps {
   height: number;
@@ -14,10 +15,11 @@ interface ConfettiItemProps {
   color: string;
   left: number;
   top: number;
-  shape: "rect" | "circle" | "oval";
+  shape: 'rect' | 'circle' | 'oval';
   rotate: number;
   zIndex: number;
   fallDuration: number;
+  startDelay: number;
 }
 
 export const ConfettiItem = ({
@@ -30,6 +32,7 @@ export const ConfettiItem = ({
   rotate,
   zIndex,
   fallDuration,
+  startDelay,
 }: ConfettiItemProps) => {
   const _yOffset = useSharedValue(0);
 
@@ -53,102 +56,117 @@ export const ConfettiItem = ({
 
     const leftEnd = randomNumber(
       left - ((height + width) * 2) / 2,
-      left + ((height + width) * 2) / 2
+      left + ((height + width) * 2) / 2,
     );
 
     const topEnd = randomNumber(
       top - ((height + width) * 2) / 2,
-      top + ((height + width) * 2) / 2
+      top + ((height + width) * 2) / 2,
     );
 
     const leftSpeed = randomNumber(500, 1500);
     const topSpeed = randomNumber(500, 1500);
 
-    const borderRadius = shape === "circle" ? 25 : shape === "oval" ? 15 : 1;
+    const borderRadius = shape === 'circle' ? 25 : shape === 'oval' ? 15 : 1;
 
     return {
       backgroundColor: color,
       height,
       width,
       zIndex,
-      position: "absolute",
-      left: withRepeat(
-        withSequence(
-          withTiming(left, {
-            duration: leftSpeed,
-            easing: Easing.linear,
-          }),
-          withTiming(leftEnd, {
-            duration: leftSpeed,
-            easing: Easing.linear,
-          })
+      position: 'absolute',
+      left: withDelay(
+        startDelay,
+        withRepeat(
+          withSequence(
+            withTiming(left, {
+              duration: leftSpeed,
+              easing: Easing.linear,
+            }),
+            withTiming(leftEnd, {
+              duration: leftSpeed,
+              easing: Easing.linear,
+            }),
+          ),
+          -1,
+          true,
         ),
-        -1,
-        true
       ),
       // top,
-      top: withRepeat(
-        withSequence(
-          withTiming(top, {
-            duration: topSpeed,
-            easing: Easing.linear,
-          }),
-          withTiming(topEnd, {
-            duration: topSpeed,
-            easing: Easing.linear,
-          })
+      top: withDelay(
+        startDelay,
+        withRepeat(
+          withSequence(
+            withTiming(top, {
+              duration: topSpeed,
+              easing: Easing.linear,
+            }),
+            withTiming(topEnd, {
+              duration: topSpeed,
+              easing: Easing.linear,
+            }),
+          ),
+          -1,
+          true,
         ),
-        -1,
-        true
       ),
       borderRadius,
       transform: [
         {
-          rotateX: withRepeat(
-            withSequence(
-              withTiming(`${0}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              }),
-              withTiming(`${180}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              })
+          rotateX: withDelay(
+            startDelay,
+            withRepeat(
+              withSequence(
+                withTiming(`${0}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+                withTiming(`${180}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+              ),
+              -1,
+              true,
             ),
-            -1,
-            true
           ),
         },
         {
-          rotateY: withRepeat(
-            withSequence(
-              withTiming(`${0}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              }),
-              withTiming(`${180}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              })
+          rotateY: withDelay(
+            startDelay,
+            withRepeat(
+              withSequence(
+                withTiming(`${0}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+                withTiming(`${180}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+              ),
+              -1,
+              true,
             ),
-            -1,
-            true
           ),
         },
         {
-          rotateZ: withRepeat(
-            withSequence(
-              withTiming(`${0}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              }),
-              withTiming(`${180}deg`, {
-                duration: rotateDuration,
-                easing: Easing.linear,
-              })
+          rotateZ: withDelay(
+            startDelay,
+            withRepeat(
+              withSequence(
+                withTiming(`${0}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+                withTiming(`${180}deg`, {
+                  duration: rotateDuration,
+                  easing: Easing.linear,
+                }),
+              ),
+              -1,
+              true,
             ),
-            -1,
-            true
           ),
         },
         { rotate: `${rotate}deg` },
@@ -160,10 +178,13 @@ export const ConfettiItem = ({
     return {
       transform: [
         {
-          translateY: withTiming(_yOffset.value * 255, {
-            duration: fallDuration,
-            easing: Easing.out(Easing.linear),
-          }),
+          translateY: withDelay(
+            startDelay,
+            withTiming(_yOffset.value * 255, {
+              duration: fallDuration,
+              easing: Easing.out(Easing.linear),
+            }),
+          ),
         },
       ],
     };
