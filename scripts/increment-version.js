@@ -1,7 +1,7 @@
-const {exec, execSync} = require("child_process");
+const {execSync} = require("child_process");
 const fs = require("fs");
 
-const publish = () => {
+const incrementVersion = () => {
   console.log("Checking for local changes...");
 
   let status = execSync("git status", "utf8");
@@ -42,12 +42,7 @@ const publish = () => {
   execSync("git add package.json");
   execSync("git commit -m 'incremented version'");
   execSync("git push");
-  console.log("Finished pushing up package.json changes...");
-
-  console.log("Starting npm publish...");
-  exec("npm publish", () => {
-    console.log("npm publish finished");
-  });
+  console.log("Finished pushing up package.json changes");
 };
 
-publish();
+incrementVersion();

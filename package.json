@@ -1,6 +1,6 @@
 {
   "name": "react-native-fullscreen-animations",
-  "version": "0.0.29",
+  "version": "0.0.16",
   "description": "A react native package that handles fullscreen animations for your app",
   "license": "ISC",
   "author": "robertgagnon726",
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "babel src --out-dir lib -s --copy-files",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "publish": "node ./scripts/publish.js",
+    "increment-version": "node ./scripts/increment-version.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier-package-json": "prettier-package-json --write ./package.json"
   },
