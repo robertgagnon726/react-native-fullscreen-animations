@@ -10,8 +10,6 @@ import Animated, {
 import { ConfettiItem } from './confetti-item';
 import { randomColor, randomNumber } from './utils';
 
-// TODO BG - add in before and after callback
-
 interface ConfettiRootProps {
   /** The number of pieces of confetti that should be rendered */
   count?: number;
@@ -42,7 +40,7 @@ interface Res {
 const DEFAULT_COLORS = ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'];
 
 export const Confetti = ({
-  count = 100,
+  count = Dimensions.get('screen').width / 2,
   colors = DEFAULT_COLORS,
   fallDuration = 10000,
   zIndex = 1000,
