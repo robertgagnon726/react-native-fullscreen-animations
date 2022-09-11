@@ -1,35 +1,27 @@
 {
   "name": "react-native-fullscreen-animations",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "A react native package that handles fullscreen animations for your app",
-  "main": "src/index.tsx",
-  "scripts": {
-    "build": "babel src --out-dir lib -s --copy-files",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "node ./scripts/publish.js"
-  },
+  "license": "ISC",
+  "author": "robertgagnon726",
+  "homepage": "https://github.com/robertgagnon726/react-native-fullscreen-animations#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertgagnon726/react-native-fullscreen-animations.git"
   },
-  "keywords": [
-    "react",
-    "react-native",
-    "confetti",
-    "fall",
-    "animation",
-    "animated",
-    "ios",
-    "android",
-    "reanimated"
-  ],
-  "author": "robertgagnon726",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/robertgagnon726/react-native-fullscreen-animations/issues"
   },
-  "homepage": "https://github.com/robertgagnon726/react-native-fullscreen-animations#readme",
+  "main": "src/index.tsx",
+  "scripts": {
+    "build": "babel src --out-dir lib -s --copy-files",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "publish": "node ./scripts/publish.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier-package-json": "prettier-package-json --write ./package.json"
+  },
   "dependencies": {
+    "prettier-package-json": "^2.6.4",
     "react-native-reanimated": "^2.10.0"
   },
   "devDependencies": {
@@ -42,6 +34,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json-format": "^2.0.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.2",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -49,5 +42,16 @@
     "react": "^18.0.0",
     "react-native": "^0.69.5",
     "typescript": "^4.8.2"
-  }
+  },
+  "keywords": [
+    "android",
+    "animated",
+    "animation",
+    "confetti",
+    "fall",
+    "ios",
+    "react",
+    "react-native",
+    "reanimated"
+  ]
 }
