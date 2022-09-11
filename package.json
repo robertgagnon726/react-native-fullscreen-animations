@@ -21,7 +21,6 @@
     "prettier-package-json": "prettier-package-json --write ./package.json"
   },
   "dependencies": {
-    "prettier-package-json": "^2.6.4",
     "react-native-reanimated": "^2.10.0"
   },
   "devDependencies": {
@@ -39,6 +38,7 @@
     "eslint-plugin-react": "^7.31.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "expo": "^46.0.10",
+    "prettier-package-json": "^2.6.4",
     "react": "^18.0.0",
     "react-native": "^0.69.5",
     "typescript": "^4.8.2"

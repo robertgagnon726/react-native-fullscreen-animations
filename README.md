@@ -22,10 +22,22 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 
 ## To do 
 
-- [ ] Add tests and add the test report badge to the README
-- [ ] Add to Circle CI and add the badge to the README
 - [ ] Bundle so just the main exports can be imported
 - [ ] Create interactive documentation
+- [ ] Add tests and add the test report badge to the README
+- [ ] Add to Circle CI and add the badge to the README
+- [ ] Add a confetti cannon
+- [ ] Add multiple confetti cannons
+- [ ] Add a money drop
+- [ ] Change confetti name to ConfettiDrop
+- [ ] Add infinite confetti
+- [ ] Floating balloons
+- [ ] Add firework confetti
+- [ ] Add fireworks
+- [ ] Add snowfalling
+- [ ] Add rain falling
+- [ ] Add particle swirls
+- [ ] Slinky
 - [x] Doucment the props in the README
 - [x] Confetti items are typically the same width. Make them all the same width and differing heights, but also rotate them to a random degree before they start falling
 - [x] Simulate air resistance. Move them from left to right?
