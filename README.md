@@ -22,7 +22,6 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 
 ## To do 
 
-- [ ] Create a publish script that automatically builds and increments the version number
 - [ ] Add tests and add the test report badge to the README
 - [ ] Add to Circle CI and add the badge to the README
 - [ ] Bundle so just the main exports can be imported
@@ -33,3 +32,4 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 - [x] Add a pre animation callback
 - [x] Add a post animation callback
 - [x] Update default count to be dependent on screen width
+- [x] Create a publish script that automatically builds and increments the version number
