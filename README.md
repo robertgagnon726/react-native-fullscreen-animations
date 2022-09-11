@@ -16,6 +16,8 @@ If there are suggestions or ideas for improvement, please open up an issue and I
 | fallDuration | number | No | 10000 | The time in which it takes for the confetti items to fall. This value is in milliseconds |  
 | zIndex | number | No | 1000 | Allows you to set the zIndex without a hacky solution |  
 | startDelay | number | No | 0 | The number of milliseconds that the animation should wait to start |  
+| preAnimation | () => void | No | () => {} | Function that runs before the animation is started |  
+| postAnimation | () => void | No | () => {} | Function that runs once the animation is completed |  
 
 
 ## To do 
