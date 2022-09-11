@@ -10,12 +10,23 @@ import Animated, {
 import { ConfettiItem } from './confetti-item';
 import { randomColor, randomNumber } from './utils';
 
+// TODO BG - add in before and after callback
+
 interface ConfettiRootProps {
+  /** The number of pieces of confetti that should be rendered */
   count?: number;
+  /** An array of the colors that the confetti items will be made from. These must be hex values */
   colors?: string[];
+  /** The time in which it takes for the confetti items to fall. This value is in milliseconds */
   fallDuration?: number;
+  /** Allows you to set the zIndex without a hacky solution */
   zIndex?: number;
+  /** The number of milliseconds that the animation should wait to start */
   startDelay?: number;
+  /** Function that runs before the animation is started */
+  preAnimation?: () => void;
+  /** Function that runs once the animation is completed */
+  postAnimation?: () => void;
 }
 
 interface Res {
@@ -36,13 +47,23 @@ export const Confetti = ({
   fallDuration = 10000,
   zIndex = 1000,
   startDelay = 0,
+  preAnimation = () => {},
+  postAnimation = () => {},
 }: ConfettiRootProps) => {
   const _yOffset = useSharedValue(0);
 
   React.useEffect(() => {
+    preAnimation();
     setTimeout(() => {
       _yOffset.value = 10;
     }, startDelay);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      postAnimation();
+    }, startDelay + fallDuration);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
