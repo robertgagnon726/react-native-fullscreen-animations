@@ -1,4 +1,4 @@
-const {execSync} = require("child_process");
+const {exec, execSync} = require("child_process");
 const fs = require("fs");
 
 const publish = () => {
@@ -44,9 +44,10 @@ const publish = () => {
   execSync("git push");
   console.log("Finished pushing up package.json changes...");
 
-  // console.log("Starting npm publish...");
-  // execSync("npm publish");
-  // console.log("npm publish finished");
+  console.log("Starting npm publish...");
+  exec("npm publish", () => {
+    console.log("npm publish finished");
+  });
 };
 
 publish();
